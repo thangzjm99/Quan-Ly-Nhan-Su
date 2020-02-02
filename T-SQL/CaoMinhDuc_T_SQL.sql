@@ -1,7 +1,7 @@
 ﻿use bai_tap;
 go
 
---1.them cot trang thai trong bang mon an
+--1.them cot trang thai bang mon an
 alter table MONAN add trangthai int;
 go
 
