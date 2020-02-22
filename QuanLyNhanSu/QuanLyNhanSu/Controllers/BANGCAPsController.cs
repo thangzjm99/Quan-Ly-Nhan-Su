@@ -14,12 +14,39 @@ namespace QuanLyNhanSu.Controllers
     {
         private Model1 db = new Model1();
 
-        // GET: BANGCAPs
-        public ActionResult Index()
+       
+        public ActionResult Index(string searchBy,string search)
+        {
+            var bANGCAPs = db.BANGCAPs.Include(b => b.NHANVIEN);
+
+            if (searchBy == "TENBC")
+            {
+                return View(db.BANGCAPs.Where(b => b.TENBC.Contains(search) || search == null).ToList());
+
+            }
+            else if (searchBy == "LOAIBC")
+            {
+                return View(db.BANGCAPs.Where(b => b.LOAIBC.Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "DVCAP")
+            {
+                return View(db.BANGCAPs.Where(b => b.DVCAP.Contains(search) || search == null).ToList());
+            }
+            else
+            {
+                return View(bANGCAPs.ToList());
+            }
+            
+        }
+
+        public ActionResult Find()
         {
             var bANGCAPs = db.BANGCAPs.Include(b => b.NHANVIEN);
             return View(bANGCAPs.ToList());
+
         }
+
+        
 
         // GET: BANGCAPs/Details/5
         public ActionResult Details(int? id)
@@ -43,9 +70,7 @@ namespace QuanLyNhanSu.Controllers
             return View();
         }
 
-        // POST: BANGCAPs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MABC,MANV,TENBC,LOAIBC,NGAYCAP,DVCAP")] BANGCAP bANGCAP)
@@ -61,7 +86,7 @@ namespace QuanLyNhanSu.Controllers
             return View(bANGCAP);
         }
 
-        // GET: BANGCAPs/Edit/5
+       
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,9 +102,6 @@ namespace QuanLyNhanSu.Controllers
             return View(bANGCAP);
         }
 
-        // POST: BANGCAPs/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MABC,MANV,TENBC,LOAIBC,NGAYCAP,DVCAP")] BANGCAP bANGCAP)
@@ -119,6 +141,8 @@ namespace QuanLyNhanSu.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

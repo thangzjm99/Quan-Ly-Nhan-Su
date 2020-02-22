@@ -7,7 +7,18 @@
 <h2>Degree List</h2> 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") <br/>
+</p>
+<p>
+    @using (Html.BeginForm("Index","BANGCAPs",FormMethod.Get))
+    {
+    <b> Search by : </b> 
+    @Html.RadioButton("searchBy", "TENBC",true) <text>TENBANGCAP</text>
+    @Html.RadioButton("searchBy", "LOAIBC") <text>LOAIBANGCAP</text>
+    @Html.RadioButton("searchBy", "DVCAP")<text> DONVICAP</text> <br />
+    @Html.TextBox("search") <input type="submit" value="Search" />
+
+    }
 </p>
 <table class="table">
     <tr>
