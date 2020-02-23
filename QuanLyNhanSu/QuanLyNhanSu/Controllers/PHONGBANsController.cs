@@ -15,9 +15,19 @@ namespace QuanLyNhanSu.Controllers
         private Model1 db = new Model1();
 
         // GET: PHONGBANs
-        public ActionResult Index()
+        public ActionResult Index(string searchBy,string search)
         {
-            return View(db.PHONGBANs.ToList());
+            if (searchBy == "TENPB")
+            {
+                return View(db.PHONGBANs.Where(b => b.TENPB.Contains(search) || search == null).ToList());
+
+            }
+            else if (searchBy == "TRGPB")
+                {
+                    return View(db.PHONGBANs.Where(b => b.TRGPB.Contains(search) || search == null).ToList());
+
+                }
+            else return View(db.PHONGBANs.ToList());
         }
 
         // GET: PHONGBANs/Details/5

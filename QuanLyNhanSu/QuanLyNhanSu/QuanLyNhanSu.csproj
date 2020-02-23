@@ -177,8 +177,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\BANGCAPs\Create.cshtml" />
     <Content Include="Views\BANGCAPs\Delete.cshtml" />
@@ -196,6 +194,7 @@
     <Content Include="Views\PHONGBANs\Edit.cshtml" />
     <Content Include="Views\PHONGBANs\Index.cshtml" />
     <Content Include="Views\Home\Guide.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>

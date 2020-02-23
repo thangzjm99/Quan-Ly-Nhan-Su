@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace QuanLyNhanSu.Controllers
 {
@@ -12,13 +13,22 @@ namespace QuanLyNhanSu.Controllers
         public ActionResult Index()
         {
 
-            return View();
-        }
-
-        public ActionResult Login()
-        {
             
             return View();
+        }
+        [HttpPost]
+        public ActionResult Login()
+        {
+            string user = Request.Form["Usernametext"];
+            string pass = Request.Form["Passwordtext"];
+            if (user == "admin" && pass == "admin" )
+            {
+                return RedirectToAction("Index", "Home", null);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login", null);
+            }
         }
     }
 }

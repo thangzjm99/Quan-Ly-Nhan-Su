@@ -9,6 +9,23 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<p>
+    @using (Html.BeginForm("Index", "NHANVIENs", FormMethod.Get))
+    {
+        <b> Search by : </b>
+        @Html.RadioButton("searchBy", "HOTEN", true) <text>TENNHANVIEN</text>
+        @Html.RadioButton("searchBy", "DIACHI") <text>DIACHI</text>
+        @Html.RadioButton("searchBy", "SDT")<text>SDT</text>
+        @Html.RadioButton("searchBy", "NGAYSINH")<text>NGAYSINH</text>
+        @Html.RadioButton("searchBy", "CMND")<text>CMND</text>
+        @Html.RadioButton("searchBy", "GIOITINH")<text>GIOITINH</text>
+        @Html.RadioButton("searchBy", "QUEQUAN")<text>QUEQUAN</text>
+        @Html.RadioButton("searchBy", "DANTOC")<text>DANTOC</text>
+        @Html.RadioButton("searchBy", "SOSOBH")<text>SOSOBH</text> <br />
+        @Html.TextBox("search") <input type="submit" value="Search" />
+
+    }
+</p>
 <table class="table">
     <tr>
         <th>

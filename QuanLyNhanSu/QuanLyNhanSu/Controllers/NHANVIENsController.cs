@@ -15,10 +15,47 @@ namespace QuanLyNhanSu.Controllers
         private Model1 db = new Model1();
 
         // GET: NHANVIENs
-        public ActionResult Index()
+        public ActionResult Index(string searchBy,string search)
         {
             var nHANVIENs = db.NHANVIENs.Include(n => n.PHONGBAN);
-            return View(nHANVIENs.ToList());
+            if (searchBy == "HOTEN")
+            {
+                return View(db.NHANVIENs.Where(b => b.HOTEN.Contains(search) || search == null).ToList());
+
+            }
+            else if (searchBy == "DIACHI")
+            {
+                return View(db.NHANVIENs.Where(b => b.DIACHI.Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "SDT")
+            {
+                return View(db.NHANVIENs.Where(b => b.SDT.ToString().Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "NGAYSINH")
+            {
+                return View(db.NHANVIENs.Where(b => b.NGAYSINH.ToString().Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "CMND")
+            {
+                return View(db.NHANVIENs.Where(b => b.CMND.ToString().Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "GIOITINH")
+            {
+                return View(db.NHANVIENs.Where(b => b.GIOITINH.Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "QUEQUAN")
+            {
+                return View(db.NHANVIENs.Where(b => b.QUEQUAN.Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "DANTOC")
+            {
+                return View(db.NHANVIENs.Where(b => b.DANTOC.Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "SOSOBH")
+            {
+                return View(db.NHANVIENs.Where(b => b.SOSOBH.ToString().Contains(search) || search == null).ToList());
+            }
+            else return View(nHANVIENs.ToList());
         }
 
         // GET: NHANVIENs/Details/5
