@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace QuanLyNhanSu.Controllers
 {
@@ -27,6 +28,8 @@ namespace QuanLyNhanSu.Controllers
             }
             else
             {
+                MessageBox.Show("Wrong id and password");
+
                 return RedirectToAction("Index", "Login", null);
             }
         }

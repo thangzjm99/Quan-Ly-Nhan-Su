@@ -81,8 +81,7 @@ namespace QuanLyNhanSu.Controllers
         }
 
         // POST: NHANVIENs/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MANV,HOTEN,DIACHI,SDT,NGAYSINH,CMND,GIOITINH,QUEQUAN,DANTOC,MAPB,SOSOBH,CHUCVU")] NHANVIEN nHANVIEN)
@@ -115,8 +114,7 @@ namespace QuanLyNhanSu.Controllers
         }
 
         // POST: NHANVIENs/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MANV,HOTEN,DIACHI,SDT,NGAYSINH,CMND,GIOITINH,QUEQUAN,DANTOC,MAPB,SOSOBH,CHUCVU")] NHANVIEN nHANVIEN)
