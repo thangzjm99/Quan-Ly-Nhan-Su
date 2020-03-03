@@ -10,6 +10,7 @@ namespace QuanLyNhanSu.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -18,6 +19,7 @@ namespace QuanLyNhanSu.Controllers
         public ActionResult Guide()
         {
             ViewBag.Message = "Your guide page.";
+
             return View();
         }
 
