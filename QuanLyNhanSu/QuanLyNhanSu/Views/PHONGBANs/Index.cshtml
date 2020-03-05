@@ -22,10 +22,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TENPB)
+            @Html.ActionLink("Tên phòng ban", "Index", new { sortOrder = ViewBag.TenpbSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TRGPB)
+            @Html.ActionLink("Trường phòng", "Index", new { sortOrder = ViewBag.TruongpbSortParm })
         </th>
         <th></th>
     </tr>

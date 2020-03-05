@@ -29,37 +29,37 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PHONGBAN.TENPB)
+            @Html.ActionLink("Tên phòng ban", "Index", new { sortOrder = ViewBag.TenpbSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HOTEN)
+            @Html.ActionLink("Tên nhân viên", "Index", new { sortOrder = ViewBag.TennvSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DIACHI)
+            @Html.ActionLink("Địa Chỉ", "Index", new { sortOrder = ViewBag.DiachiSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SDT)
+            @Html.ActionLink("Số điện thoại", "Index", new { sortOrder = ViewBag.SdtSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NGAYSINH)
+            @Html.ActionLink("Ngày sinh", "Index", new { sortOrder = ViewBag.NgaysinhSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CMND)
+            @Html.ActionLink("CMND", "Index", new { sortOrder = ViewBag.CmndSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GIOITINH)
+            @Html.ActionLink("Giới tính", "Index", new { sortOrder = ViewBag.GioitinhSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QUEQUAN)
+            @Html.ActionLink("Quê quán", "Index", new { sortOrder = ViewBag.QuequanSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DANTOC)
+            @Html.ActionLink("Dân tộc", "Index", new { sortOrder = ViewBag.DantocSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SOSOBH)
+            @Html.ActionLink("Số bảo hiểm", "Index", new { sortOrder = ViewBag.SobhSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CHUCVU)
+            @Html.ActionLink("Chức vụ", "Index", new { sortOrder = ViewBag.ChucvuSortParm })
         </th>
         <th></th>
     </tr>
