@@ -83,7 +83,7 @@ namespace QuanLyNhanSu.Controllers
         }
 
         // POST: PHONGBANs/Edit/5
-        /
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MAPB,TENPB,TRGPB")] PHONGBAN pHONGBAN)
