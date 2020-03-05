@@ -23,19 +23,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NHANVIEN.HOTEN)
+            @Html.ActionLink("Tên nhân viên", "Index", new { sortOrder = ViewBag.TennvSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TENBC)
+            @Html.ActionLink("Tên bằng cấp", "Index", new { sortOrder = ViewBag.TenbcSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LOAIBC)
+            @Html.ActionLink("Loại bằng cấp", "Index", new { sortOrder = ViewBag.LoaibcSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NGAYCAP)
+            @Html.ActionLink("Ngày cấp", "Index", new { sortOrder = ViewBag.NgaycapSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DVCAP)
+            @Html.ActionLink("Đơn vị cấp", "Index", new { sortOrder = ViewBag.DvcapSortParm })
         </th>
         <th></th>
     </tr>

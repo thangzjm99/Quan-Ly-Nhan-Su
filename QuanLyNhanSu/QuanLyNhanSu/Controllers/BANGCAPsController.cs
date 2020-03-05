@@ -15,7 +15,77 @@ namespace QuanLyNhanSu.Controllers
         private Model1 db = new Model1();
 
        
-        public ActionResult Index(string searchBy,string search)
+        public ActionResult Index(string searchBy, string search,string sortOrder)
+        {
+            ViewBag.TenbcSortParm = sortOrder == "tenbc" ? "tenbc_desc" : "tenbc";
+            ViewBag.LoaibcSortParm = sortOrder == "loaibc" ? "loaibc_desc" : "loaibc";
+            ViewBag.DvcapSortParm = sortOrder == "dvcap" ? "dvcap_desc" : "dvcap";
+            ViewBag.TennvSortParm = sortOrder == "tennv" ? "tennv_desc" : "tennv";
+            ViewBag.NgaycapSortParm = sortOrder == "ngaycap" ? "ngaycap_desc" : "ngaycap";
+            var bANGCAPs1 = db.BANGCAPs.AsQueryable();
+            if (!String.IsNullOrEmpty(search))
+            {
+                if (searchBy == "TENBC")
+                {
+                    return View(db.BANGCAPs.Where(b => b.TENBC.Contains(search) || search == null).ToList());
+
+                }
+                else if (searchBy == "LOAIBC")
+                {
+                    return View(db.BANGCAPs.Where(b => b.LOAIBC.Contains(search) || search == null).ToList());
+                }
+                else if (searchBy == "DVCAP")
+                {
+                    return View(db.BANGCAPs.Where(b => b.DVCAP.Contains(search) || search == null).ToList());
+                }
+                else
+                {
+                    return View(bANGCAPs1.ToList());
+                }
+            }
+
+
+            switch (sortOrder)
+            {
+                case "tenbc_desc":
+                    bANGCAPs1 = bANGCAPs1.OrderByDescending(s => s.TENBC);
+                    break;
+                case "loaibc":
+                    bANGCAPs1 = bANGCAPs1.OrderBy(s => s.LOAIBC);
+                    break;
+                case "loaibc_desc":
+                    bANGCAPs1 = bANGCAPs1.OrderByDescending(s => s.LOAIBC);
+                    break;
+                case "dvcap":
+                    bANGCAPs1 = bANGCAPs1.OrderBy(s => s.DVCAP);
+                    break;
+                case "dvcap_desc":
+                    bANGCAPs1 = bANGCAPs1.OrderByDescending(s => s.DVCAP);
+                    break;
+                case "tennv":
+                    bANGCAPs1 = bANGCAPs1.OrderBy(s => s.NHANVIEN.HOTEN);
+                    break;
+                case "tennv_desc":
+                    bANGCAPs1 = bANGCAPs1.OrderByDescending(s => s.NHANVIEN.HOTEN);
+                    break;
+                case "ngaycap":
+                    bANGCAPs1 = bANGCAPs1.OrderBy(s => s.NGAYCAP);
+                    break;
+                case "ngaycap_desc":
+                    bANGCAPs1 = bANGCAPs1.OrderByDescending(s => s.NGAYCAP);
+                    break;
+                default:
+                    bANGCAPs1 = bANGCAPs1.OrderBy(s => s.TENBC);
+                    break;
+            }
+            return View(bANGCAPs1.ToList());
+
+           
+            //ViewBag.TenbcSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            
+        }
+
+        public ActionResult Search(string searchBy, string search)
         {
             var bANGCAPs = db.BANGCAPs.Include(b => b.NHANVIEN);
 
@@ -36,13 +106,6 @@ namespace QuanLyNhanSu.Controllers
             {
                 return View(bANGCAPs.ToList());
             }
-            
-        }
-
-        public ActionResult Find()
-        {
-            var bANGCAPs = db.BANGCAPs.Include(b => b.NHANVIEN);
-            return View(bANGCAPs.ToList());
 
         }
 

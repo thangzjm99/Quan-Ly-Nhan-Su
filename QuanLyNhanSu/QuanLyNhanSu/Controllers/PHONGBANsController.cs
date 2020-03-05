@@ -15,19 +15,41 @@ namespace QuanLyNhanSu.Controllers
         private Model1 db = new Model1();
 
         // GET: PHONGBANs
-        public ActionResult Index(string searchBy,string search)
+        public ActionResult Index(string searchBy,string search,string sortOrder)
         {
-            if (searchBy == "TENPB")
+            ViewBag.TenpbSortParm = sortOrder == "tenpb" ? "tenpb_desc" : "tenpb";
+            ViewBag.TruongpbSortParm = sortOrder == "truongpb" ? "truongpb_desc" : "truongpb";
+            var pHONGBANs1 = db.PHONGBANs.AsQueryable();
+            if (!String.IsNullOrEmpty(search))
             {
-                return View(db.PHONGBANs.Where(b => b.TENPB.Contains(search) || search == null).ToList());
+                if (searchBy == "TENPB")
+                {
+                    return View(db.PHONGBANs.Where(b => b.TENPB.Contains(search) || search == null).ToList());
 
-            }
-            else if (searchBy == "TRGPB")
+                }
+                else if (searchBy == "TRGPB")
                 {
                     return View(db.PHONGBANs.Where(b => b.TRGPB.Contains(search) || search == null).ToList());
 
                 }
-            else return View(db.PHONGBANs.ToList());
+                else return View(pHONGBANs1.ToList());
+            }
+            switch (sortOrder)
+            {
+                case "tenpb_desc":
+                    pHONGBANs1 = pHONGBANs1.OrderByDescending(s => s.TENPB);
+                    break;
+                case "truongpb":
+                    pHONGBANs1 = pHONGBANs1.OrderBy(s => s.TRGPB);
+                    break;
+                case "truongpb_desc":
+                    pHONGBANs1 = pHONGBANs1.OrderByDescending(s => s.TRGPB);
+                    break;
+                default:
+                    pHONGBANs1 = pHONGBANs1.OrderBy(s => s.TENPB);
+                    break;
+            }
+            return View(pHONGBANs1.ToList());
         }
 
         // GET: PHONGBANs/Details/5
