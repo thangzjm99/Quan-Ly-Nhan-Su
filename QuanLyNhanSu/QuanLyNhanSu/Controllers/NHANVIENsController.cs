@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -84,10 +85,17 @@ namespace QuanLyNhanSu.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MANV,HOTEN,DIACHI,SDT,NGAYSINH,CMND,GIOITINH,QUEQUAN,DANTOC,MAPB,SOSOBH,CHUCVU")] NHANVIEN nHANVIEN)
+        public ActionResult Create([Bind(Include = "MANV,HOTEN,DIACHI,SDT,NGAYSINH,CMND,GIOITINH,QUEQUAN,DANTOC,MAPB,SOSOBH,CHUCVU")] NHANVIEN nHANVIEN, HttpPostedFileBase uploadImage)
         {
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileNameWithoutExtension(uploadImage.FileName);
+                string extension = Path.GetExtension(uploadImage.FileName);
+                string filePath = Path.Combine(Server.MapPath("~/Images"), fileName);
+                filePath = filePath + extension;
+                uploadImage.SaveAs(filePath);
+                nHANVIEN.image = fileName + extension;
+
                 db.NHANVIENs.Add(nHANVIEN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -117,10 +125,26 @@ namespace QuanLyNhanSu.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MANV,HOTEN,DIACHI,SDT,NGAYSINH,CMND,GIOITINH,QUEQUAN,DANTOC,MAPB,SOSOBH,CHUCVU")] NHANVIEN nHANVIEN)
+        public ActionResult Edit([Bind(Include = "MANV,HOTEN,DIACHI,SDT,NGAYSINH,CMND,GIOITINH,QUEQUAN,DANTOC,MAPB,SOSOBH,CHUCVU")] NHANVIEN nHANVIEN, HttpPostedFileBase uploadImage)
         {
             if (ModelState.IsValid)
             {
+                if (Request.Form["image"] != null)
+                {
+                    if (nHANVIEN.image != null)
+                    {
+                        string filePathOld = Path.Combine(Server.MapPath("~/Images"), nHANVIEN.image);
+                        System.IO.File.Delete(filePathOld);
+                    }
+
+                    string fileName = Path.GetFileNameWithoutExtension(uploadImage.FileName);
+                    string extension = Path.GetExtension(uploadImage.FileName);
+                    string filePathNew = Path.Combine(Server.MapPath("~/Images"), fileName);
+                    filePathNew = filePathNew + extension;
+                    uploadImage.SaveAs(filePathNew);
+                    nHANVIEN.image = fileName + extension;
+                }
+
                 db.Entry(nHANVIEN).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -150,6 +174,12 @@ namespace QuanLyNhanSu.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             NHANVIEN nHANVIEN = db.NHANVIENs.Find(id);
+
+            if (nHANVIEN.image != null)
+            {
+                string filePath = Path.Combine(Server.MapPath("~/Images"), nHANVIEN.image);
+                System.IO.File.Delete(filePath);
+            }
             db.NHANVIENs.Remove(nHANVIEN);
             db.SaveChanges();
             return RedirectToAction("Index");

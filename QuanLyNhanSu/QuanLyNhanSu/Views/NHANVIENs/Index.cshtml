@@ -61,50 +61,58 @@
         <th>
             @Html.DisplayNameFor(model => model.CHUCVU)
         </th>
+        <th>
+            Image
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PHONGBAN.TENPB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HOTEN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DIACHI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NGAYSINH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CMND)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GIOITINH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QUEQUAN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DANTOC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SOSOBH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CHUCVU)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MANV }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MANV }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MANV })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.PHONGBAN.TENPB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HOTEN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DIACHI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SDT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NGAYSINH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CMND)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GIOITINH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.QUEQUAN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DANTOC)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SOSOBH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CHUCVU)
+    </td>
+    <td>
+    <td>
+        <img src="@Url.Content("~/Images/"+item.image)" height="100px" width="100px" alt="Alternate Text" />
+    </td>
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MANV }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MANV }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MANV })
+    </td>
+</tr>
 }
 
 </table>
