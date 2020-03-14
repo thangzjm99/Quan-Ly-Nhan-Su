@@ -1,0 +1,179 @@
+﻿@model IEnumerable<QuanLyNhanSu.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+    <h2>Employee List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    <form class="" action="~/NHANVIENs/Index" method="post">
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <select class="custom-select custom-control-inline" name="searchBy">
+                    <option value="" disabled selected> Choose your option</option>
+                    <option value="HOTEN">Tên nhân viên</option>
+                    <option value="DIACHI">Địa chỉ</option>
+                    <option value="NGAYSINH">Ngày sinh</option>
+                    <option value="CMND">CMND</option>
+                    <option value="GIOITINH">Giới tính</option>
+                    <option value="QUEQUAN">Quê quán</option>
+                    <option value="DANTOC">Dân tộc</option>
+                    <option value="SOSOBH">Số bảo hiểm</option>
+                </select>
+            </div>
+
+            <div class="input-group col-md-8" id="">
+                <input type="text" name="search" class="form-control bg-white border-0 small" placeholder="Search for...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search fa-sm">
+                        </i>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    @*@using (Html.BeginForm("Index", "NHANVIENs", FormMethod.Get))
+    {
+        <b><label for="searchBy"> Search by </label></b>
+        <select class="" name="searchBy">
+            <option value="" disabled selected> Choose your option</option>
+            <option value="HOTEN">Tên nhân viên</option>
+            <option value="DIACHI">Địa chỉ</option>
+            <option value="NGAYSINH">Ngày sinh</option>
+            <option value="CMND">CMND</option>
+            <option value="GIOITINH">Giới tính</option>
+            <option value="QUEQUAN">Quê quán</option>
+            <option value="DANTOC">Dân tộc</option>
+            <option value="SOSOBH">Số bảo hiểm</option>
+
+
+
+        </select>
+
+
+
+        <b> Search by : </b>
+        <input type="radio" name="searchBy" value="HOTEN">
+        <label> Tên nhân viên </label>
+        <input type="radio" name="searchBy" value="DIACHI">
+        <label> Địa chỉ </label>
+        <input type="radio" name="searchBy" value="NGAYSINH">
+        <label> Ngày sinh </label>
+        <input type="radio" name="searchBy" value="CMND">
+        <label> CMND </label>
+        <input type="radio" name="searchBy" value="GIOITINH">
+        <label> Giới tính </label>
+        <input type="radio" name="searchBy" value="QUEQUAN">
+        <label>Quê quán</label>
+        <input type="radio" name="searchBy" value="DANTOC">
+        <label>Dân tộc</label>
+        <input type="radio" name="searchBy" value="SOSOBH">
+        <label>Số bảo hiểm</label>
+
+        <br />
+        <div class="input-group">
+            <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm">
+                    </i>
+                </button>
+
+            </div>
+
+        </div>
+
+    }*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Tên phòng ban", "Index", new { sortOrder = ViewBag.TenpbSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Tên nhân viên", "Index", new { sortOrder = ViewBag.TennvSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Địa Chỉ", "Index", new { sortOrder = ViewBag.DiachiSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Số điện thoại", "Index", new { sortOrder = ViewBag.SdtSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Ngày sinh", "Index", new { sortOrder = ViewBag.NgaysinhSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("CMND", "Index", new { sortOrder = ViewBag.CmndSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Giới tính", "Index", new { sortOrder = ViewBag.GioitinhSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Quê quán", "Index", new { sortOrder = ViewBag.QuequanSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Dân tộc", "Index", new { sortOrder = ViewBag.DantocSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Số bảo hiểm", "Index", new { sortOrder = ViewBag.SobhSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Chức vụ", "Index", new { sortOrder = ViewBag.ChucvuSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHONGBAN.TENPB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOTEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIACHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYSINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CMND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOITINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUEQUAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DANTOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOSOBH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHUCVU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MANV }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MANV }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MANV })
+        </td>
+    </tr>
+}
+
+</table>
