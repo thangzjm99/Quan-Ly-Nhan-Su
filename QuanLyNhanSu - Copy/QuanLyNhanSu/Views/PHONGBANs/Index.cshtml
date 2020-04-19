@@ -1,0 +1,69 @@
+﻿@model IEnumerable<QuanLyNhanSu.Models.PHONGBAN>
+
+@{
+    ViewBag.Title = "Institution List";
+}
+
+    <h2>Institution List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    
+   <form class="" action="~/PHONGBANs/Index" method="post" >
+
+       <div class="row">
+            <div class="col-md-4">
+               
+                <select class="custom-select custom-control-inline" name="searchBy">
+                    <option value="" disabled selected> Choose your search option</option>
+                    <option value="TENPB">Tên phòng ban</option>
+                    <option value="TRGPB">Trưởng phòng ban</option>
+                </select>
+            </div>
+
+            <div class="input-group col-md-8" id="">
+                    <input type="text" name="search" class="form-control bg-white border-0 small" placeholder="Search for...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search fa-sm">
+                        </i>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+   </form>
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Tên phòng ban", "Index", new { sortOrder = ViewBag.TenpbSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Trường phòng", "Index", new { sortOrder = ViewBag.TruongpbSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENPB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRGPB)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MAPB }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MAPB }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MAPB })
+        </td>
+    </tr>
+}
+
+</table>
