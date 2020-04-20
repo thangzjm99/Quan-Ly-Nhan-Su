@@ -1,0 +1,133 @@
+﻿@model IEnumerable<QuanLyNhanSu.Models.BANGCAP>
+
+@{
+    ViewBag.Title = "Degree List";
+}
+    
+        <h2>Degree List</h2>
+        <link rel="stylesheet" type="text/css" href="~/Content/Custom/Select.css">
+        <script src="~/Content/Custom/Select.js"></script>
+
+ 
+    
+        <p>
+            @Html.ActionLink("Create New", "Create") <br />
+        </p>
+      
+        <p>
+            <form class="" action="~/BANGCAPs/Index" method="post">
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <select class="custom-select custom-control-inline" name="searchBy">
+                            <option value="" disabled selected> Choose your search option</option>
+                            <option value="TENNV">Tên nhân viên</option>
+                            <option value="TENBC">Tên bằng cấp</option>
+                            <option value="LOAIBC">Loại bằng cấp</option>
+                            <option value="NGAYCAP">Ngày cấp</option>
+                            <option value="DVCAP">Đơn vị cấp</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group col-md-8" id="">
+                        <input type="text" name="search" class="form-control bg-white border-0 small" placeholder="Search for...">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search fa-sm">
+                                </i>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+           @* @using (Html.BeginForm("Index", "BANGCAPs", FormMethod.Get))
+            {
+
+                @*<select class="js-example-disabled-results">
+                <option value="one">First</option>
+                <option value="two" disabled="disabled">Second (disabled)</option>
+                <option value="three">Third</option>
+            </select>*@
+
+                @*<b><label for="searchBy"> Search by </label></b>
+                <select class="" name="searchBy">
+                    <option value="" disabled selected> Choose your option</option>
+                    <option value="TENBC">Tên bằng cấp</option>
+                    <option value="LOAIBC">Loại bằng cấp</option>
+                    <option value="DVCAP">Đơn vị cấp</option>
+                </select>*@
+                @*<select name="searchBy" >
+                <option value="TENBC">Tên bằng cấp</option>
+                <option value="LOAIBC">Loại bằng cấp</option>
+                <option value="DVCAP">Đơn vị cấp</option>
+            </select>*@
+                @*@Html.RadioButton("searchBy", "TENBC", true) <text>TENBANGCAP</text>
+            @Html.RadioButton("searchBy", "LOAIBC") <text>LOAIBANGCAP</text>
+            @Html.RadioButton("searchBy", "DVCAP")<text> DONVICAP</text> <br />*@
+
+                @*<div class="input-group">
+                    <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for...">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search fa-sm">
+                            </i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            } *@
+        </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.ActionLink("Tên nhân viên", "Index", new { sortOrder = ViewBag.TennvSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Tên bằng cấp", "Index", new { sortOrder = ViewBag.TenbcSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Loại bằng cấp", "Index", new { sortOrder = ViewBag.LoaibcSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Ngày cấp", "Index", new { sortOrder = ViewBag.NgaycapSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Đơn vị cấp", "Index", new { sortOrder = ViewBag.DvcapSortParm })
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NHANVIEN.HOTEN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TENBC)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LOAIBC)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NGAYCAP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DVCAP)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.MABC }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.MABC }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MABC })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+   

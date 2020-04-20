@@ -1,0 +1,58 @@
+﻿@model QuanLyNhanSu.Models.BANGCAP
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BANGCAP</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NHANVIEN.HOTEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANVIEN.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENBC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENBC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAIBC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAIBC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYCAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYCAP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DVCAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVCAP)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MABC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

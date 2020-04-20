@@ -1,0 +1,106 @@
+﻿@model QuanLyNhanSu.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NHANVIEN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PHONGBAN.TENPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONGBAN.TENPB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOITINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOITINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUEQUAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUEQUAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DANTOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DANTOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOSOBH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOSOBH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHUCVU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHUCVU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MANV }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
