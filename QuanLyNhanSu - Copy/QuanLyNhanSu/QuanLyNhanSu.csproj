@@ -1952,6 +1952,34 @@
     <Content Include="Content\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Content\vendor\jquery\jquery.min.map" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="HomeProperties\css\bootstrap.css" />
+    <Content Include="HomeProperties\css\font-awesome.css" />
+    <Content Include="HomeProperties\css\style.css" />
+    <Content Include="HomeProperties\fonts\fontawesome-webfont.svg" />
+    <Content Include="HomeProperties\images\1.jpg" />
+    <Content Include="HomeProperties\images\10.jpg" />
+    <Content Include="HomeProperties\images\2.jpg" />
+    <Content Include="HomeProperties\images\3.jpg" />
+    <Content Include="HomeProperties\images\4.jpg" />
+    <Content Include="HomeProperties\images\5.jpg" />
+    <Content Include="HomeProperties\images\6.jpg" />
+    <Content Include="HomeProperties\images\7.jpg" />
+    <Content Include="HomeProperties\images\8.jpg" />
+    <Content Include="HomeProperties\images\9.jpg" />
+    <Content Include="HomeProperties\images\banner.jpg" />
+    <Content Include="HomeProperties\images\te1.jpg" />
+    <Content Include="HomeProperties\images\te2.jpg" />
+    <Content Include="HomeProperties\images\te3.jpg" />
+    <Content Include="HomeProperties\images\team1.jpg" />
+    <Content Include="HomeProperties\images\team2.jpg" />
+    <Content Include="HomeProperties\js\aos.js" />
+    <Content Include="HomeProperties\js\bootstrap.js" />
+    <Content Include="HomeProperties\js\counternew.js" />
+    <Content Include="HomeProperties\js\easing.js" />
+    <Content Include="HomeProperties\js\jquery-2.2.3.min.js" />
+    <Content Include="HomeProperties\js\jquery.countup.js" />
+    <Content Include="HomeProperties\js\modernizr.custom.js" />
+    <Content Include="HomeProperties\js\move-top.js" />
     <Content Include="Image\male_avatar-512.png" />
     <Content Include="Image\Screenshot %28601%29.png" />
     <Content Include="Image\Screenshot %28602%29.png" />
@@ -1990,6 +2018,11 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="HomeProperties\fonts\fontawesome-webfont.eot" />
+    <Content Include="HomeProperties\fonts\fontawesome-webfont.ttf" />
+    <Content Include="HomeProperties\fonts\fontawesome-webfont.woff" />
+    <Content Include="HomeProperties\fonts\fontawesome-webfont.woff2" />
+    <Content Include="HomeProperties\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2112,6 +2145,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\lohp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
