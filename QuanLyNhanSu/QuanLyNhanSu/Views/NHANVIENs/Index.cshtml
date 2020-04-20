@@ -1,0 +1,110 @@
+﻿@model IEnumerable<QuanLyNhanSu.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+    <h2>Employee List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @using (Html.BeginForm("Index", "NHANVIENs", FormMethod.Get))
+    {
+        <b> Search by : </b>
+        @Html.RadioButton("searchBy", "HOTEN", true) <text>TENNHANVIEN</text>
+        @Html.RadioButton("searchBy", "DIACHI") <text>DIACHI</text>
+        @Html.RadioButton("searchBy", "SDT")<text>SDT</text>
+        @Html.RadioButton("searchBy", "NGAYSINH")<text>NGAYSINH</text>
+        @Html.RadioButton("searchBy", "CMND")<text>CMND</text>
+        @Html.RadioButton("searchBy", "GIOITINH")<text>GIOITINH</text>
+        @Html.RadioButton("searchBy", "QUEQUAN")<text>QUEQUAN</text>
+        @Html.RadioButton("searchBy", "DANTOC")<text>DANTOC</text>
+        @Html.RadioButton("searchBy", "SOSOBH")<text>SOSOBH</text> <br />
+        @Html.TextBox("search") <input type="submit" value="Search" />
+
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PHONGBAN.TENPB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CMND)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOITINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUEQUAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DANTOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOSOBH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHUCVU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHONGBAN.TENPB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOTEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIACHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYSINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CMND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOITINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUEQUAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DANTOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOSOBH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHUCVU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MANV }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MANV }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MANV })
+        </td>
+    </tr>
+}
+
+</table>

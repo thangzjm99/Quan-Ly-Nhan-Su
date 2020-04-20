@@ -1,0 +1,34 @@
+﻿@model QuanLyNhanSu.Models.PHONGBAN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PHONGBAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENPB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRGPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRGPB)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAPB }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
