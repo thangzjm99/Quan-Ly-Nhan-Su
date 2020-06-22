@@ -83,7 +83,7 @@
 
             } *@
         </p>
-            <table class="table">
+            <table class="table table-bordered table-striped">
                 <tr>
                     <th>
                         @Html.ActionLink("Tên nhân viên", "Index", new { sortOrder = ViewBag.TennvSortParm })
@@ -122,9 +122,9 @@
                             @Html.DisplayFor(modelItem => item.DVCAP)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.MABC }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.MABC }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.MABC })
+                            @Html.ActionLink("Edit", "Edit", new { id = item.MABC },new {@class="btn btn-primary" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.MABC },new {@class="btn btn-warning" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MABC },new {@class="btn btn-danger" })
                         </td>
                     </tr>
                 }

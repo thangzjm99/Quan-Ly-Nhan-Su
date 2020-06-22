@@ -95,7 +95,7 @@
 
     }*@
 </p>
-<table class="table">
+<table class="table table-bordered table-striped">
     <tr>
         <th>
             @Html.ActionLink("Tên phòng ban", "Index", new { sortOrder = ViewBag.TenpbSortParm })
@@ -169,9 +169,9 @@
             @Html.DisplayFor(modelItem => item.CHUCVU)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MANV }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MANV }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MANV })
+            @Html.ActionLink("Edit", "Edit", new { id=item.MANV },new {@class="btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MANV },new {@class="btn btn-warning" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MANV },new {@class="btn btn-danger" })
         </td>
     </tr>
 }
