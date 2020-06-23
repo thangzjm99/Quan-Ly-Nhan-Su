@@ -14,7 +14,7 @@ namespace QuanLyNhanSu.Controllers
     {
         private Model1 db = new Model1();
 
-        // GET: PHONGBANs
+ 
         public ActionResult Index(string searchBy,string search,string sortOrder)
         {
             ViewBag.TenpbSortParm = sortOrder == "tenpb" ? "tenpb_desc" : "tenpb";
@@ -52,7 +52,7 @@ namespace QuanLyNhanSu.Controllers
             return View(pHONGBANs1.ToList());
         }
 
-        // GET: PHONGBANs/Details/5
+     
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -67,17 +67,17 @@ namespace QuanLyNhanSu.Controllers
             return View(pHONGBAN);
         }
 
-        // GET: PHONGBANs/Create
+      
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: PHONGBANs/Create
+        
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAPB,TENPB,TRGPB")] PHONGBAN pHONGBAN)
+        public ActionResult Create( PHONGBAN pHONGBAN)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,6 @@ namespace QuanLyNhanSu.Controllers
             return View(pHONGBAN);
         }
 
-        // GET: PHONGBANs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -104,11 +103,10 @@ namespace QuanLyNhanSu.Controllers
             return View(pHONGBAN);
         }
 
-        // POST: PHONGBANs/Edit/5
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAPB,TENPB,TRGPB")] PHONGBAN pHONGBAN)
+        public ActionResult Edit( PHONGBAN pHONGBAN)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +117,7 @@ namespace QuanLyNhanSu.Controllers
             return View(pHONGBAN);
         }
 
-        // GET: PHONGBANs/Delete/5
+       
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -134,7 +132,7 @@ namespace QuanLyNhanSu.Controllers
             return View(pHONGBAN);
         }
 
-        // POST: PHONGBANs/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

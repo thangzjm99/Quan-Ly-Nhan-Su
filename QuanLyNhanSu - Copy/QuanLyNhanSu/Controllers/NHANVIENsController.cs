@@ -14,7 +14,7 @@ namespace QuanLyNhanSu.Controllers
     {
         private Model1 db = new Model1();
 
-        // GET: NHANVIENs
+      
         public ActionResult Index(string searchBy,string search,string sortOrder,string searchTop)
         {
 
@@ -148,7 +148,6 @@ namespace QuanLyNhanSu.Controllers
 
         }
 
-        // GET: NHANVIENs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -163,18 +162,18 @@ namespace QuanLyNhanSu.Controllers
             return View(nHANVIEN);
         }
 
-        // GET: NHANVIENs/Create
+      
         public ActionResult Create()
         {
             ViewBag.MAPB = new SelectList(db.PHONGBANs, "MAPB", "TENPB");
             return View();
         }
 
-        // POST: NHANVIENs/Create
+       
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MANV,HOTEN,DIACHI,SDT,NGAYSINH,CMND,GIOITINH,QUEQUAN,DANTOC,MAPB,SOSOBH,CHUCVU")] NHANVIEN nHANVIEN)
+        public ActionResult Create( NHANVIEN nHANVIEN)
         {
             if (ModelState.IsValid)
             {
@@ -187,7 +186,7 @@ namespace QuanLyNhanSu.Controllers
             return View(nHANVIEN);
         }
 
-        // GET: NHANVIENs/Edit/5
+        
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -203,11 +202,10 @@ namespace QuanLyNhanSu.Controllers
             return View(nHANVIEN);
         }
 
-        // POST: NHANVIENs/Edit/5
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MANV,HOTEN,DIACHI,SDT,NGAYSINH,CMND,GIOITINH,QUEQUAN,DANTOC,MAPB,SOSOBH,CHUCVU")] NHANVIEN nHANVIEN)
+        public ActionResult Edit( NHANVIEN nHANVIEN)
         {
             if (ModelState.IsValid)
             {
@@ -219,7 +217,7 @@ namespace QuanLyNhanSu.Controllers
             return View(nHANVIEN);
         }
 
-        // GET: NHANVIENs/Delete/5
+   
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -234,7 +232,7 @@ namespace QuanLyNhanSu.Controllers
             return View(nHANVIEN);
         }
 
-        // POST: NHANVIENs/Delete/5
+    
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

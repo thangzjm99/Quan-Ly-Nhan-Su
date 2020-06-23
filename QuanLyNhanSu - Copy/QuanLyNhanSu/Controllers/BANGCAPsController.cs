@@ -119,7 +119,7 @@ namespace QuanLyNhanSu.Controllers
 
         
 
-        // GET: BANGCAPs/Details/5
+       
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -144,7 +144,7 @@ namespace QuanLyNhanSu.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MABC,MANV,TENBC,LOAIBC,NGAYCAP,DVCAP")] BANGCAP bANGCAP)
+        public ActionResult Create( BANGCAP bANGCAP)
         {
             if (ModelState.IsValid)
             {
@@ -175,7 +175,7 @@ namespace QuanLyNhanSu.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MABC,MANV,TENBC,LOAIBC,NGAYCAP,DVCAP")] BANGCAP bANGCAP)
+        public ActionResult Edit( BANGCAP bANGCAP)
         {
             if (ModelState.IsValid)
             {
@@ -187,7 +187,7 @@ namespace QuanLyNhanSu.Controllers
             return View(bANGCAP);
         }
 
-        // GET: BANGCAPs/Delete/5
+  
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -202,7 +202,7 @@ namespace QuanLyNhanSu.Controllers
             return View(bANGCAP);
         }
 
-        // POST: BANGCAPs/Delete/5
+   
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
